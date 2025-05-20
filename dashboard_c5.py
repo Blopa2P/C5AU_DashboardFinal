@@ -134,7 +134,7 @@ with col2:
 # 3. Distribución de la Calificación de Clientes
 # -------------------------------
 st.subheader("3️⃣ Distribución de la Calificación de Clientes")
-
+'''
 from scipy.stats import shapiro, skew, kurtosis
 import numpy as np
 
@@ -191,7 +191,7 @@ with col1:
 
 with col2:
     st.markdown(texto)
-
+'''
 # -------------------------------
 # 4. Comparación del Gasto por Tipo de Cliente
 # -------------------------------

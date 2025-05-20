@@ -3,6 +3,7 @@ streamlit
 matplotlib
 seaborn
 scipy
+stats
 plotly
 shapiro
 skew

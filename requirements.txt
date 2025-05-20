@@ -3,6 +3,8 @@ streamlit
 matplotlib
 seaborn
 plotly
-shapiro, skew, kurtosis
+shapiro
+skew
+kurtosis
 numpy
 scipy

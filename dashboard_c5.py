@@ -18,11 +18,27 @@ df = load_data()
 
 # Sidebar - Filtros generales
 st.sidebar.header("Filtros")
+# Filtro por sucursal
 branch = st.sidebar.multiselect("Sucursal (Branch)", options=df["Branch"].unique(), default=df["Branch"].unique())
+
+# Filtro por línea de producto
 product_lines = st.sidebar.multiselect("Línea de Producto", options=df["Product line"].unique(), default=df["Product line"].unique())
-# dates = st.sidebar.multiselect("Fecha", options=df["Date"].unique(), default=df["Date"].unique())
-# df_filtered = df[(df["Branch"].isin(branch)) & (df["Product line"].isin(product_lines)) & (df["Date"].isin(dates))]
-df_filtered = df[(df["Branch"].isin(branch)) & (df["Product line"].isin(product_lines))]
+
+# Filtro por rango de fechas
+min_date = df["Date"].min()
+max_date = df["Date"].max()
+start_date, end_date = st.sidebar.date_input(
+    "Rango de Fechas",
+    value=(min_date, max_date),
+    min_value=min_date,
+    max_value=max_date
+)
+df_filtered = df[
+    (df["Branch"].isin(branch)) & 
+    (df["Product line"].isin(product_lines)) &
+    (df["Date"] >= pd.to_datetime(start_date)) &
+    (df["Date"] <= pd.to_datetime(end_date))
+]
 
 # -------------------------------
 # 1. Evolución de las Ventas Totales

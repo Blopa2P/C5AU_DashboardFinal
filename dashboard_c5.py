@@ -21,7 +21,8 @@ st.sidebar.header("Filtros")
 branch = st.sidebar.multiselect("Sucursal (Branch)", options=df["Branch"].unique(), default=df["Branch"].unique())
 product_lines = st.sidebar.multiselect("Línea de Producto", options=df["Product line"].unique(), default=df["Product line"].unique())
 # dates = st.sidebar.multiselect("Fecha", options=df["Date"].unique(), default=df["Date"].unique())
-df_filtered = df[(df["Branch"].isin(branch)) & (df["Product line"].isin(product_lines)) & (df["Date"].isin(dates))]
+# df_filtered = df[(df["Branch"].isin(branch)) & (df["Product line"].isin(product_lines)) & (df["Date"].isin(dates))]
+df_filtered = df[(df["Branch"].isin(branch)) & (df["Product line"].isin(product_lines))]
 
 # -------------------------------
 # 1. Evolución de las Ventas Totales
